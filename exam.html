@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Wild Gunman</title>
+    <link rel="stylesheet" href="exam.css"/>
+</head>
+<body style="background-color: #000">
+
+<div class="header">
+    <span class="header-timer">You: 0.00</span><br/>
+    <span class="header-limit">Gunman: 0.00</span>
+</div>
+
+<div class="game">
+    <div class="enemy"></div>
+    <span class="game-level"></span>
+    <span class="game-status"></span>
+    <span class="game-next-level">Next level</span>
+    <div class="menu">
+				<span class="menu-inner">
+					<span class="menu-start">new game</span>
+				</span>
+    </div>
+</div>
+
+<div class="footer">
+    $ <span class="score">0</span>
+    <br>
+    reward
+</div>
+
+<script src="exam.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", gunmanGame.init());
+</script>
+</body>
+</html>

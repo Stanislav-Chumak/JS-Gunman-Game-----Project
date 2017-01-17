@@ -1,0 +1,411 @@
+@font-face {
+    font-family: 'ARCADECLASSIC';
+    src: url(ARCADECLASSIC.TTF);
+}
+
+.header, .footer {
+    width: 792px;
+    height: 80px;
+    margin: auto;
+    font-family: 'ARCADECLASSIC', monospace;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-color: #000;
+    box-sizing: border-box;
+}
+.header {
+    text-align: right;
+    padding-right: 200px;
+}
+.footer {
+    padding-left: 10px;
+}
+
+.score {
+    color: #0f0;
+}
+.game {
+    position: relative;
+    width: 792px;
+    height: 402px;
+    margin: auto;
+    overflow: hidden;
+    font-family: 'ARCADECLASSIC', monospace;
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    background: url(images/bg.png) no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.game-level {
+    position: absolute;
+    padding: 10px;
+}
+.game-status /*FIRE   YOU WON    GUNMEN WON*/
+{
+    display: none;
+    width: 792px;
+    padding-top: 10px;
+    font-size: 48px;
+    text-align: center;
+    color: #fff;
+}
+.game-status-show {
+    display: inline-block;
+}
+
+.game-next-level {
+    position: absolute;
+    display: inline-block;
+    right: 15px;
+    bottom: 15px;
+    padding: 10px 15px;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    border: 4px solid #fff;
+    border-radius: 5px;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    opacity: 0;
+    color: #fff;
+}
+
+.game-next-level-show {
+    opacity:1;
+}
+
+.menu {
+    position: absolute;
+    top:0;
+    width: 100%;
+    line-height: 530px;
+    text-align: center;
+    background-color: rgba(0,0,0,.9);
+    visibility: visible;
+}
+.menu-hide {
+    visibility: hidden;
+}
+.menu-inner {
+    display: inline-block;
+    line-height: 100%;
+}
+.menu-start {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 26px;
+    border: 4px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+
+.enemy {
+    position: absolute;
+    width: 128px;
+    height: 256px;
+    bottom: 60px;
+    left: 792px;
+    transform: scale(0.8);
+    background: url(images/gunman.png);
+}
+.enemy-move {
+    left: 345px;
+    transition: left 5s linear;
+}
+
+/*=================================================1st enemy==========================================================*/
+
+@keyframes walk1 {
+    0% {
+        background-position: 0 0;
+    }
+    33% {
+        background-position: -136px 0;
+    }
+    66% {
+        background-position: -268px 0;
+    }
+}
+.enemy-1-walk {
+    animation: walk1 .4s step-start;
+    animation-iteration-count: infinite;
+}
+.enemy-1-stay {
+    background-position: -400px 0;
+}
+.enemy-1-ready {
+    background-position: -808px 0;
+}
+@keyframes hit1 {
+    from {
+        background-position: -944px 0;
+    }
+    20% {
+        background-position: -1080px 0;
+    }
+    to {
+        background-position: -1216px 0;
+    }
+}
+.enemy-1-hit {
+    animation: hit1 2s step-start;
+    animation-iteration-count: 1;
+}
+@keyframes down1 {
+    0% {
+        background-position: -1352px 0;
+    }
+    20% {
+        background-position: -1352px 0;
+    }
+    100% {
+        background-position: -1488px 0;
+    }
+}
+.enemy-1-down {
+    animation: down1 2s step-start;
+    animation-iteration-count: 1;
+}
+.enemy-1-dead {
+    background-position: -1488px 0;
+}
+
+/*=================================================2nd enemy==========================================================*/
+
+.enemy-2 {
+    height: 288px;
+
+    background-position: 0 -272px;
+}
+@keyframes walk2 {
+    0% {
+        background-position: 0 -272px;
+    }
+    33% {
+        background-position: -128px -272px;
+    }
+    66% {
+        background-position: -256px -272px;
+    }
+}
+.enemy-2-walk {
+    animation: walk2 .4s step-start;
+    animation-iteration-count: infinite;
+}
+.enemy-2-stay {
+    background-position: 0 -272px;
+}
+.enemy-2-ready {
+    background-position: -384px -272px;
+}
+@keyframes hit2 {
+    from {
+        background-position: -512px -272px;
+    }
+    20% {
+        background-position: -768px -272px;
+    }
+    to {
+        background-position: -896px -272px;
+    }
+}
+.enemy-2-hit {
+    animation: hit2 2s step-start;
+    animation-iteration-count: 1;
+}
+.enemy-2-down {
+    background-position: -1024px -272px;
+}
+.enemy-2-dead {
+    background-position: -1024px -272px;
+}
+
+/*=================================================3rd enemy==========================================================*/
+
+.enemy-3 {
+    height: 320px;
+    background-position: 0 -576px;
+}
+@keyframes walk3 {
+    0% {
+        background-position: 0 -576px;
+    }
+    33% {
+        background-position: -128px -576px;
+    }
+    66% {
+        background-position: -256px -576px;
+    }
+}
+.enemy-3-walk {
+    animation: walk3 .4s step-start;
+    animation-iteration-count: infinite;
+}
+.enemy-3-stay {
+    background-position: 0 -576px;
+}
+.enemy-3-ready {
+    background-position: -384px -576px;
+}
+@keyframes hit3 {
+    from {
+        background-position: -512px -576px;
+    }
+    20% {
+        background-position: -640px -576px;
+    }
+    to {
+        background-position: -768px -576px;
+    }
+}
+.enemy-3-hit {
+    animation: hit3 2s step-start;
+    animation-iteration-count: 1;
+}
+.enemy-3-down {
+    background-position: -896px -576px;
+}
+.enemy-3-dead {
+    background-position: -896px -576px;
+}
+
+/*=================================================4th enemy==========================================================*/
+
+.enemy-4 {
+    width: 128px;
+    height: 256px;
+    background-position: 0 -912px;
+}
+@keyframes walk4 {
+    0% {
+        background-position: 0 -912px;
+    }
+    33% {
+        background-position: -128px -912px;
+    }
+    66% {
+        background-position: -256px -912px;
+    }
+}
+.enemy-4-walk {
+    animation: walk4 .4s step-start;
+    animation-iteration-count: infinite;
+}
+.enemy-4-stay {
+    background-position: 0 -912px;
+}
+.enemy-4-ready {
+    background-position: -384px -912px;
+}
+@keyframes hit4 {
+    from {
+        background-position: -512px -912px;
+    }
+    20% {
+        background-position: -640px -912px;
+    }
+    to {
+        background-position: -768px -912px;
+    }
+}
+.enemy-4-hit {
+    animation: hit4 2s step-start;
+    animation-iteration-count: 1;
+}
+.enemy-4-down {
+    background-position: -896px -912px;
+}
+.enemy-4-dead {
+    background-position: -896px -912px;
+}
+
+/*=================================================5th enemy==========================================================*/
+
+.enemy-5 {
+    height: 276px;
+    background-position: 0 -1184px;
+}
+@keyframes walk5 {
+    0% {
+        background-position: 0 -1184px;
+    }
+    33% {
+        background-position: -128px -1184px;
+    }
+    66% {
+        background-position: -256px -1184px;
+    }
+}
+.enemy-5-walk {
+    animation: walk5 .4s step-start;
+    animation-iteration-count: infinite;
+}
+.enemy-5-stay {
+    background-position: 0 -1184px;
+}
+.enemy-5-ready {
+    background-position: -384px -1184px;
+}
+@keyframes hit5 {
+    from {
+        background-position: -512px -1184px;
+    }
+    20% {
+        background-position: -640px -1184px;
+    }
+    to {
+        background-position: -768px -1184px;
+    }
+}
+.enemy-5-hit {
+    animation: hit5 2s step-start;
+    animation-iteration-count: 1;
+}
+@keyframes down5 {
+    0% {
+        background-position: -896px -1184px;
+    }
+    20% {
+        background-position: -896px -1184px;
+    }
+    100% {
+        background-position: -1024px -1184px;
+    }
+}
+.enemy-5-down {
+    animation: down5 2s step-start;
+    animation-iteration-count: 1;
+}
+.enemy-5-dead {
+    background-position: -1024px -1184px;
+}
+
+/*====================================================================================================================*/
+
+@keyframes defeat {
+    0% {
+        box-shadow: inset 0 0 500px rgba(255,0,0,1);
+    }
+    10% {
+        box-shadow: inset 0 0 350px rgba(255,0,0,1);
+    }
+    100% {
+        box-shadow: inset 0 0 200px rgba(255,0,0,0);
+    }
+}
+.game-hit {
+    animation: 2.5s defeat linear;
+}
+
+footer {
+    background-color: #fff;
+    height: 100px;
+    text-align: center;
+    line-height: 24px;
+    color: #000;
+}
